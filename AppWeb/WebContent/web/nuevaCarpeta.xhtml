@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+      <h:head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <title>NUEVA CARPETA</title>
+      </h:head>
+      
+      <body>
+<h:form>     
+       <p:messages id="messages" showDetail="true" closable="true">
+        <p:autoUpdate />
+    </p:messages>
+    
+<p:toolbar>
+		<f:facet name="left">
+		 <p:commandButton type="button" value="New" icon="pi pi-file" />
+		 <p:commandButton type="button" title="Save" icon="pi pi-save" />
+	 </f:facet>
+		<f:facet name="right">
+			<p:menuButton value="Opciones">
+		<p:menuitem value="Homepage" url="http://www.primefaces.org" 
+		icon="pi pi-home" />
+	</p:menuButton>
+        </f:facet>
+	</p:toolbar>
+	<p:separator />
+	
+	
+	<p:tooltip />
+	<h:form>
+    <p:messages id="messages" showDetail="true" closable="true">
+        <p:autoUpdate />
+    </p:messages>
+ 
+    <p:commandButton value="Info" action="#{messagesView.info}" />
+    <p:commandButton value="Warn" action="#{messagesView.warn}" />
+    <p:commandButton value="Error" action="#{messagesView.error}" />
+    <p:commandButton value="Fatal" action="#{messagesView.fatal}" />
+</h:form>
+	<p:panel >
+	
+
+		<p:panelGrid id="grid" columns="3" border="1" rules="all">
+			<f:facet name="header">
+				<h:outputText value="Nuevo Registro de Carpetas" />
+			</f:facet>
+			 <!--<h:outputText id="id" value="Id:"></h:outputText>
+			 <h:inputHidden value="#{carpetaController.carpeta.id}" /> 
+			 
+			 <p:outputLabel for="nombre" value="Nombre:"></p:outputLabel>
+			 <p:inputText id="nombre" value="#{carpetaController.carpeta.nombre}"
+			 required="true" />
+			 <p:message for="nombre" display="nombre es requerido" />-->
+			 
+		<p:outputLabel for="default" value="Default:" />
+        <p:inputText id="default" required="true" />
+        <p:message for="default" />
+ 
+        <p:outputLabel for="txt" value="Text:" />
+        <p:inputText id="txt" required="true" />
+        <p:message for="txt" display="text" />
+ 
+		
+		</p:panelGrid>
+	<p:commandButton id="submitButton" value="Submit" update="grid" />
+	</p:panel>
+	
+	
+	
+</h:form>
+</body>
+</html>

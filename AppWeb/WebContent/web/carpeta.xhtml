@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"> 
+      
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CARPETA</title>
+</h:head> 
+<body>
+
+<p:commandButton value="NUEVO" action="newCarpeta?faces-redirect=true" 
+actionListener="#{carpetaController.limpiar}" ajax="true">
+</p:commandButton> 
+
+<h:form id="frmGeneral" enctype="multipart/form-data">
+<h:outputLabel value="hola"/>
+
+
+<p:dataTable id="tablaCarpeta" var="a" value="#{carpetaController.listarC}">
+    <p:column headerText="cedula">
+        <h:outputText value="#{a.id}"/>
+    </p:column>
+ 
+    <p:column headerText="nombre">
+        <h:outputText value="#{a.nombre}"/>
+    </p:column>
+ 
+ 
+ 	<p:column headerText="Menu">
+ 		<p:toolbarGroup align="right">
+ 			<p:menuButton value="opciones">
+ 				<p:menuitem value="modificar" action="newCarpeta.jsf"
+ 					actionListener="#{carpetaController.buscar}" ajax="false">
+ 				<f:attribute name="carpetabuscar" value="#{a.id}"/>
+ 				</p:menuitem>
+ 				
+ 				<p:menuitem value="eliminar" action="carpeta.jsf"
+ 				onclick="if(!confirm('esta sguro de eliminar?')) return false"
+ 				actionListener="#{carpetaController.eliminar}" update="tablaCarpeta"
+ 				ajax="true">
+ 				<f:attribute name="carpetaeliminar" value="#{a.id}"/>
+ 				</p:menuitem>
+ 			</p:menuButton>
+ 		</p:toolbarGroup>
+ 	
+       
+    </p:column>
+ 
+    
+ 
+</p:dataTable>
+
+
+</h:form>
+
+
+</body> 
+</html>

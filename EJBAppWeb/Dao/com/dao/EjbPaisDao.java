@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import com.ejb.model.Pais;
 
 
-@Stateless(name="ejbCarpetaDao")
+@Stateless(name="ejbPaisDao")
 
 public class EjbPaisDao implements PaisDao {
 	

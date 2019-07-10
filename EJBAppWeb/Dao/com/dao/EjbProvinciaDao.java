@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import com.ejb.model.Provincia;;
 
 
-@Stateless(name="ejbCarpetaDao")
+@Stateless(name="ejbProvinciaDao")
 
 public class EjbProvinciaDao implements ProvinciaDao {
 	

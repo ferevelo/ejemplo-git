@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title> NUEVA CARPETA</title>
+</h:head> 
+	<body>
+	<h:form>
+	
+		<p:toolbar>
+			<p:toolbarGroup align="left">
+				<p:commandButton value="Grabar"
+					actionListener="#{carpetaController.grabar}" update="messagesdo"
+					action="carpeta?faces-redirect=true"
+					ajax="true"></p:commandButton>
+			</p:toolbarGroup>
+			
+			<p:toolbarGroup align="right">
+				<p:menuButton value="Opciones">
+					<p:menuitem value="Regresar" outcome="carpeta.jsf" />
+				</p:menuButton>
+			</p:toolbarGroup>
+		</p:toolbar>
+
+	
+		<p:messages errorClass="msg-error">
+		</p:messages>
+		<p:growl id="messagesdo" showDetail="true" sticky="true" />
+		<p:panelGrid columns="1" border="1" rules="all">
+			<f:facet name="header">
+				<h:outputText value="Nuevo Registro de Carpetas" />
+			</f:facet>
+
+			<h:inputHidden value="#{carpetaController.carpeta.id}"
+				required="false" requiredMessage="El campo es requerido" />
+				
+		<p:inputText value="#{carpetaController.carpeta.nombre}"  
+		required="true" requiredMessage="El campo es requerido" ></p:inputText>
+
+			</p:panelGrid>
+
+	
+	<p:panelGrid columns="2" border="1">
+		
+		<p:outputLabel value="comboNormal"> 
+		</p:outputLabel>	
+			
+		<p:selectOneMenu id="normal"
+		required="true">
+		<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+		<f:selectItem itemLabel="Paris" itemValue="Paris"/>
+		<f:selectItem itemLabel="Madrid" itemValue="Madrid"/>
+		<f:selectItem itemLabel="Quito" itemValue="Quito"/>
+		</p:selectOneMenu>
+		
+		<p:outputLabel value="comboLista">
+		</p:outputLabel>
+		<p:selectOneMenu id="conLista"
+		value=" #{carpetaController.areaEstudioLista}" required="true">
+		<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+		<f:selectItems value="#{carpetaController.areaEstudioLista}"/>
+		</p:selectOneMenu>
+		
+		
+		<p:outputLabel value="Pais">
+		</p:outputLabel>
+		<p:selectOneMenu id="Pais"
+		value=" #{carpetaController.pais}" required="true">
+		<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+		<f:selectItems value="#{carpetaController.paisArray}"
+		itemValue="#{carpetaController.pais}"/>
+		</p:selectOneMenu>
+		
+		<p:outputLabel value="Provincia">
+		</p:outputLabel>
+		<p:selectOneMenu id="Provincia"
+		value=" #{carpetaController.provincia}" required="true">
+		<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+		<f:selectItems value="#{carpetaController.provinciaArray}"
+		itemValue="#{carpetaController.provincia}"/>
+		</p:selectOneMenu>
+		
+		<p:outputLabel value="Canton">
+		</p:outputLabel>
+		<p:selectOneMenu id="Canton"
+		value=" #{carpetaController.canton}" required="true">
+		<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+		<f:selectItems value="#{carpetaController.cantonArray}"
+		itemValue="#{carpetaController.canton}"/>
+		</p:selectOneMenu>
+		
+		<p:outputLabel value="Parroquia">
+		</p:outputLabel>
+		<p:selectOneMenu id="Prarroquia"
+		value=" #{carpetaController.parroquia}" required="true">
+		<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+		<f:selectItems value="#{carpetaController.parroquiaArray}"
+		itemValue="#{carpetaController.parroquia}"/>
+		</p:selectOneMenu>
+		
+	</p:panelGrid>
+			
+
+
+</h:form>
+
+
+
+</body>
+	
+</html>

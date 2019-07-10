@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import com.ejb.model.Canton;
 
 
-@Stateless(name="ejbCarpetaDao")
+@Stateless(name="ejbCantonDao")
 
 public class EjbCantonDao implements CantonDao {
 	

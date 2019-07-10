@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import com.ejb.model.Parroquia;;
 
 
-@Stateless(name="ejbCarpetaDao")
+@Stateless(name="ejbParroquiaDao")
 
 public class EjbParroquiaDao implements ParroquiaDao {
 	
